@@ -1,4 +1,4 @@
-package com.testautomation.poc;
+package com.testautomation.poc.util;
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -9,7 +9,7 @@ import java.io.IOException;
  
 import javax.imageio.ImageIO;
  
-public class ScreenCaptureUtilityinPac {
+public class ScreenCaptureUtilityinPacCHR2 {
 	
 	private static final String filePath = "E:\\CMS PoCs\\selenium_testing\\logscreenimages\\";
 	

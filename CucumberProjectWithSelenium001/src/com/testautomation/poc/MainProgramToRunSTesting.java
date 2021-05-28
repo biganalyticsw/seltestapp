@@ -23,7 +23,7 @@ import junit.framework.Assert;
 
 //Selenium Test class for login form of the application
 
-public class TestClass002 {	
+public class MainProgramToRunSTesting {	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
