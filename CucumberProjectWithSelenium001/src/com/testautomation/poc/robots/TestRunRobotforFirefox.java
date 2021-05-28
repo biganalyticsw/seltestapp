@@ -38,12 +38,6 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 		this.driver = driver;
 	}
 
-	public TestRunRobotforChrome() {
-		// TODO Auto-generated constructor stub
-		driver=new ChromeDriver();
-		this.setDriver(driver);
-	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
