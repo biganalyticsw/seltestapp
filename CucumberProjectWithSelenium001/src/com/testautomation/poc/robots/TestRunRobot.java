@@ -14,8 +14,16 @@ public abstract class TestRunRobot {
 
 	}*/
 	
+	public abstract void initBrowserDriver();
+	
 	public abstract WebDriver getDriver();
 	
+	public abstract void loginForBrowser(WebDriver driver);
+	
+	public abstract void logoutForBrowser(WebDriver driver);
+	
 	public abstract void runRobotForBrowser();
+	
+	public abstract void closeBrowserDriver();
 
 }

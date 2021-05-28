@@ -1,14 +1,9 @@
 package com.testautomation.poc;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.testautomation.poc.robots.TestRunRobot;
 import com.testautomation.poc.robots.TestRunRobotforChrome;
-import com.testautomation.poc.util.ScreenCaptureUtilityinPacCHR;
-
-import junit.framework.Assert;
 
 //Selenium Test class for login form of the application
 
@@ -31,14 +26,20 @@ public class MainProgramToRunSTesting {
 	@Test
 	public static void login() {
 	TestRunRobot tstrrobo = new TestRunRobotforChrome();
-	
-	WebDriver driver = tstrrobo.getDriver();
 		
+	tstrrobo.initBrowserDriver();
+	WebDriver driver = tstrrobo.getDriver();
+	
+	tstrrobo.loginForBrowser(driver);
+	
 	try {
-		Thread.sleep(2000l);
+		Thread.sleep(5000l);
 	} catch (InterruptedException e2) {
 	
 	}
+	tstrrobo.logoutForBrowser(driver);
+	
+	
 	
 	}
 }

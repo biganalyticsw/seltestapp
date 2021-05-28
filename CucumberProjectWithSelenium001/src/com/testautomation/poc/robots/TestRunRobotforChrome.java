@@ -14,7 +14,9 @@ import junit.framework.Assert;
 
 public class TestRunRobotforChrome extends TestRunRobot {
 	
-	private WebDriver driver=new ChromeDriver();
+	private WebDriver driver;
+	
+	private String timeStamp="";
 
 	public WebDriver getDriver() {
 		return driver;
@@ -36,7 +38,7 @@ public class TestRunRobotforChrome extends TestRunRobot {
 	}
 	
 	
-	public void init() {
+	public void initBrowserDriver() {
 		
 		System.setProperty("webdriver.chrome.driver", "E:\\CMS PoCs\\selenium_testing\\chromedriver.exe");
 		
@@ -45,7 +47,7 @@ public class TestRunRobotforChrome extends TestRunRobot {
 		
 		System.out.println(new SimpleDateFormat("yyyyMMdd^HHmmss").format(new Date()));
 		
-		String timeStamp = new SimpleDateFormat("yyyyMMdd^HHmmss").format(new Date()); 
+		timeStamp = new SimpleDateFormat("yyyyMMdd^HHmmss").format(new Date()); 
 		try {
 			Thread.sleep(1000l);
 		} catch (InterruptedException e) {
@@ -113,7 +115,8 @@ public class TestRunRobotforChrome extends TestRunRobot {
 			Thread.sleep(2000l);
 		} catch (InterruptedException e) {
 		}
-		
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp+"015");
+
 		String expectedUrl= driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl,actualUrl);
 		
@@ -121,7 +124,23 @@ public class TestRunRobotforChrome extends TestRunRobot {
 	}
 
 	
-	public void closeDriver() {
+	@SuppressWarnings("deprecation")
+	public void logoutForBrowser(WebDriver driver) {
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp+"016");
+
+		WebElement logoutBtn= driver.findElement(By.xpath("//*[@id=\"preferences-menu\"]/tbody/tr/td[3]/a[2]"));
+		logoutBtn.click();
+		
+		try {
+			Thread.sleep(2000l);
+		} catch (InterruptedException e) {
+		}
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp+"017");
+
+		
+	}
+	
+	public void closeBrowserDriver() {
 		
 		try {
 			driver.close();
