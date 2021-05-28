@@ -89,6 +89,7 @@ public class TestRunRobotforChrome extends TestRunRobot {
 	}
 	
 	
+	@SuppressWarnings("deprecation")
 	public void loginForBrowser(WebDriver driver) {
 		WebElement username= driver.findElement(By.xpath("//*[@id=\"content-main-section\"]/center/div/div[3]/form/table/tbody/tr[1]/td/input"));
 		WebElement password= driver.findElement(By.xpath("//*[@id=\"content-main-section\"]/center/div/div[3]/form/table/tbody/tr[2]/td/input"));
@@ -115,8 +116,19 @@ public class TestRunRobotforChrome extends TestRunRobot {
 		
 		String expectedUrl= driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl,actualUrl);
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp+"015");
+		
 
 	}
 
+	
+	public void closeDriver() {
+		
+		try {
+			driver.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
