@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public abstract class TestRunRobot {
 
 	public TestRunRobot() {
-		System.out.println("Calling constructor in TestRunRobot AC  ");
+		System.out.println("Calling constructor in TestRunRobot AC ");
 		// TODO Auto-generated constructor stub
 	}
 

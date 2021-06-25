@@ -6,15 +6,15 @@ import java.util.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.testautomation.poc.util.ScreenCaptureUtilityinPacCHR;
 
 import junit.framework.Assert;
 
-public abstract class TestRunRobotforFirefox extends TestRunRobot {
+public class TestRunRobotforFirefox extends TestRunRobot {
 
 	private WebDriver driver;
 
@@ -23,10 +23,11 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 	@SuppressWarnings("deprecation")
 	public TestRunRobotforFirefox() {
 		// TODO Auto-generated constructor stub
-		System.setProperty("webdriver.gecko.driver","E:\\CMS PoCs\\selenium_testing\\geckodriver.exe" );  
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();  
-        capabilities.setCapability("marionette",true);  
-        driver= new FirefoxDriver(capabilities);  
+		System.setProperty("webdriver.gecko.driver", "E:\\CMS PoCs\\selenium_testing\\geckodriver.exe");
+	
+		FirefoxOptions firefoxOptions = new FirefoxOptions();
+		firefoxOptions.setCapability("marionette", true);
+		driver = new FirefoxDriver(firefoxOptions);
 		this.setDriver(driver);
 	}
 
@@ -45,8 +46,6 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 
 	public void initBrowserDriver() {
 
-		System.setProperty("webdriver.chrome.driver", "E:\\CMS PoCs\\selenium_testing\\chromedriver.exe");
-
 		driver.manage().window().maximize();
 		driver.get("https://115.124.105.99:6443/humanres/control/main");
 
@@ -59,7 +58,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "010");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "010frfx");
 
 		// https certificate invalid page
 		WebElement button01 = driver.findElement(By.id("details-button"));
@@ -71,7 +70,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 			e.printStackTrace();
 		}
 
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "012");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "012frfx");
 
 		// proceed to ip server page
 		WebElement button02 = driver.findElement(By.id("proceed-link"));
@@ -83,7 +82,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 			e.printStackTrace();
 		}
 
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "014");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "014frfx");
 
 		// actual login page loading
 		System.out.println("check 0023.....");
@@ -119,7 +118,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 			Thread.sleep(2000l);
 		} catch (InterruptedException e) {
 		}
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "015");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "015frfx");
 
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -128,7 +127,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 
 	@SuppressWarnings("deprecation")
 	public void logoutForBrowser(WebDriver driver) {
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "016");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "016frfx");
 
 		WebElement logoutBtn = driver.findElement(By.xpath("//*[@id=\"preferences-menu\"]/tbody/tr/td[3]/a[2]"));
 		logoutBtn.click();
@@ -137,7 +136,7 @@ public abstract class TestRunRobotforFirefox extends TestRunRobot {
 			Thread.sleep(2000l);
 		} catch (InterruptedException e) {
 		}
-		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "017");
+		ScreenCaptureUtilityinPacCHR.captureScreenImage(timeStamp + "017frfx");
 
 	}
 
